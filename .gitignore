@@ -1,0 +1,7 @@
+# Ignotr bundler config.
+*.swp
+*~
+.project
+.DS_Store
+.idea
+.select
