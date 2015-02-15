@@ -12,8 +12,8 @@
       height       : 400,   // slider height
       imageWidth   : 550,   // image width
       imageHeight  : 400,   // image height
-      borderStyle  : '1px solid rgb(0,0,0)',
-      speed        : 300    // slide speed
+      speed        : 300,   // slide speed
+      func         : null
     }
 
     setting = $.extend(defaults, options);
@@ -51,7 +51,6 @@
         'position' : 'relative',
         'width'    : settingMap.width,
         'height'   : settingMap.height,
-        'border'   : settingMap.borderStyle,
         'overflow' : 'hidden'   // コンテナをはみ出した部分は非表示
       });
 
@@ -146,6 +145,11 @@
             jqueryMap.$sliders.css({'left': d2 + "=" + settingMap.imageWidth})
 
             stateMap.animating = false;
+
+            if ( settingMap.func ) {
+              settingMap.func(jqueryMap.$sliders.find('.ts-slide:nth-child(2)'));
+            }
+
           }
         );
 
